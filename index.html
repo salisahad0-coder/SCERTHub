@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduKerala Pro - SCERT Genius Academy</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dark-mode">
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="showView('dashboard')">
+                <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+                <div>
+                    <h1>EduKerala<span>Pro</span></h1>
+                    <p>PREMIUM LEARNING</p>
+                </div>
+            </div>
+            
+            <div class="nav-actions">
+                <div class="class-selector">
+                    <button class="class-btn" onclick="setClass(8)">Class 8</button>
+                    <button class="class-btn" onclick="setClass(9)">Class 9</button>
+                    <button class="class-btn active" onclick="setClass(10)">Class 10</button>
+                </div>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-sun" id="theme-icon"></i>
+                </button>
+                <div class="user-profile"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <!-- DASHBOARD VIEW -->
+        <div id="dashboard-view" class="view active">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-glow"></div>
+                <h2>Learn, Practice, Score Higher</h2>
+                <p class="quote">"വിജയത്തിലേക്കുള്ള വഴി കഠിനാധ്വാനമാണ്, നിങ്ങളുടെ വിജയത്തിനായി EduKerala Pro കൂടെയുണ്ട്."</p>
+                <button class="cta-btn" onclick="showView('folders')">പഠനം ആരംഭിക്കാം</button>
+            </section>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon icon-rose"><i class="fas fa-bullseye"></i></div>
+                    <div><p>SSLC Target</p><h4>A+ Grade</h4></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon icon-amber"><i class="fas fa-bolt"></i></div>
+                    <div><p>Daily Streak</p><h4>14 Days</h4></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon icon-blue"><i class="fas fa-clock"></i></div>
+                    <div><p>Study Time</p><h4>42 Hrs</h4></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon icon-emerald"><i class="fas fa-trophy"></i></div>
+                    <div><p>Global Rank</p><h4>#248</h4></div>
+                </div>
+            </div>
+
+            <!-- Premium Folders Grid -->
+            <div class="section-title">
+                <h3>Premium Learning Hub</h3>
+                <p id="current-class-label">Class 10 • Kerala State Syllabus SCERT</p>
+            </div>
+            <div class="folder-grid" id="folder-container"></div>
+        </div>
+
+        <!-- FOLDER DETAIL VIEW -->
+        <div id="folder-detail-view" class="view">
+            <button class="back-btn" onclick="showView('dashboard')">
+                <i class="fas fa-arrow-left"></i> ഡാഷ്‌ബോർഡിലേക്ക് മടങ്ങുക
+            </button>
+            <div class="folder-header-card">
+                <div class="folder-header-icon" id="detail-folder-icon"></div>
+                <div>
+                    <h2 id="detail-folder-title">Folder Title</h2>
+                    <p id="detail-folder-desc">Description</p>
+                </div>
+            </div>
+            <div class="subitem-grid" id="subitem-container"></div>
+        </div>
+
+        <!-- QUIZ ARENA VIEW -->
+        <div id="quiz-view" class="view">
+            <div class="quiz-container">
+                <div class="quiz-header">
+                    <span class="quiz-subject" id="quiz-subject">Subject</span>
+                    <div class="quiz-timer"><i class="fas fa-hourglass-half"></i> <span id="timer-text">15</span>s</div>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="quiz-progress"></div>
+                </div>
+                <h3 class="quiz-question" id="quiz-question">ചോദ്യം ഇവിടെ കാണാം...</h3>
+                <div class="quiz-options" id="quiz-options-container"></div>
+                <div class="quiz-feedback hidden" id="quiz-feedback-card">
+                    <h5 id="feedback-title">ശരിയുത്തരം!</h5>
+                    <p id="feedback-explanation">Explanation text goes here...</p>
+                    <button class="next-btn" onclick="nextQuestion()">അടുത്ത ചോദ്യം <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Floating AI Button -->
+    <button class="floating-ai-btn">
+        <i class="fas fa-sparkles"></i> <span>Ask AI Tutor</span>
+    </button>
+
+    <script src="app.js"></script>
+</body>
+</html>
